@@ -2,19 +2,11 @@
   "name": "nibit",
   "displayName": "Nibit",
   "version": "1.0.0",
-  "description": "File Manager for Web development",
   "publisher": "TGDevStudios",
-  "icon": "resources/nibit-logo.png",
-  "activationEvents": [
-    "onView:nibit-explorer"
-  ],
-  "engines": {
-    "vscode": "^1.109.0"
-  },
-  "categories": [
-    "Other"
-  ],
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onView:nibit-commands"
+  ],
   "contributes": {
     "configuration": {
       "title": "Nibit",
@@ -28,9 +20,6 @@
             "ts",
             "json"
           ],
-          "items": {
-            "type": "string"
-          },
           "description": "File extensions to show in Nibit explorer"
         }
       }
@@ -39,8 +28,8 @@
       "activitybar": [
         {
           "id": "nibit-explorer",
-          "title": "Package Explorer",
-          "icon": "resources/Nibit_SimplifiedIcon_vazado.ico"
+          "title": "Nibit",
+          "icon": "resources/Nibit_SimplifiedIcon_vazado.png"
         }
       ]
     },
@@ -48,8 +37,8 @@
       "nibit-explorer": [
         {
           "id": "nibit-commands",
-          "name": "Node Dependencies",
-          "icon": "resources/Nibit_SimplifiedIcon_vazado.ico"
+          "name": "Explorer",
+          "icon": "resources/Nibit_SimplifiedIcon_vazado.png"
         }
       ]
     },
@@ -86,28 +75,10 @@
       "view/item/context": [
         {
           "command": "nibit.insertPath",
-          "when": "view == nibit-commands && viewItem == file",
+          "when": "view == nibit-commands",
           "group": "inline"
         }
       ]
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.109.0",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "22.x",
-    "typescript-eslint": "^8.54.0",
-    "eslint": "^9.39.2",
-    "typescript": "^5.9.3",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
   }
 }
